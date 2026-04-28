@@ -47,13 +47,13 @@ api.interceptors.response.use(
   }
 );
 
-// ========== AUTH APIS ==========
+// ========== AUTH APIS
 export const authAPI = {
   login: (email, password) => api.post('/auth/login', { email, password }),
   register: (userData) => api.post('/auth/register', userData),
   getCurrentUser: () => api.get('/auth/me'),  // Make sure this endpoint exists
 };
-// ========== PRODUCT APIS ==========
+// ========== PRODUCT APIS 
 export const productAPI = {
   getAll: () => api.get('/api/products'),
   getById: (id) => api.get(`/api/products/${id}`),
@@ -63,7 +63,7 @@ export const productAPI = {
   getByFarmer: (farmerId) => api.get(`/api/farmers/${farmerId}/products`),
 };
 
-// ========== CART APIS ==========
+// ========== CART APIS 
 export const cartAPI = {
   getCart: (userId) => api.get(`/api/cart/${userId}`),
   addItem: (userId, productId, quantity) => 
@@ -73,21 +73,21 @@ export const cartAPI = {
   removeItem: (cartItemId) => api.delete(`/api/cart/items/${cartItemId}`),
 };
 
-// ========== ORDER APIS ==========
+// ========== ORDER APIS
 export const orderAPI = {
   placeOrder: (userId) => api.post('/api/orders', { userId }),
   getUserOrders: (userId) => api.get(`/api/orders/user/${userId}`),
   getOrderDetails: (orderId) => api.get(`/api/orders/${orderId}`),
 };
 
-// ========== FARMER APIS ==========
+// ========== FARMER APIS
 export const farmerAPI = {
   getProducts: (farmerId) => api.get(`/api/farmers/${farmerId}/products`),
   getOrders: (farmerId) => api.get(`/api/farmers/${farmerId}/orders`),
   getDashboardStats: (farmerId) => api.get(`/api/farmers/${farmerId}/dashboard-stats`),
 };
 
-// ========== ADMIN APIS ==========
+// ========== ADMIN APIS 
 export const adminAPI = {
   getDashboard: () => api.get('/admin/dashboard'),
   getAllUsers: () => api.get('/admin/users'),
